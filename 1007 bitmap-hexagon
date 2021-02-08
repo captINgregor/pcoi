@@ -1,0 +1,60 @@
+var a , b , c , k , i , j , cnt , cnt1 : integer;
+begin
+  readln(a);
+  if (a=1) then begin
+    writeln ('*');
+    exit;
+  end;  
+  for k := 1 to a-1 do begin
+    write (' ');
+  end;
+  for b := 1 to a-1 do begin
+    write('*');
+  end;
+  writeln('*');
+  cnt:=a-2;
+  cnt1:=a;
+  for i:=1 to (a-2) do
+  begin
+    for j:=1 to cnt do
+    begin
+      write(' ');
+    end;  
+    cnt:=cnt-1;
+    write('*');
+    for j:=1 to cnt1 do
+    begin
+      write(' ');
+    end;
+    writeln('*');
+    cnt1:=cnt1+2;
+  end;
+  write('*');
+  for i:=1 to cnt1 do write(' ');
+  writeln('*');
+  cnt := 0;
+  cnt := cnt +1;
+  cnt1 := cnt1 - 2;
+  for i:=1 to (a-2) do
+  begin
+    for j:=1 to cnt do
+    begin
+      write(' ');
+    end;  
+    cnt:=cnt+1;
+    write('*');
+    for j:=1 to cnt1 do
+    begin
+      write(' ');
+    end;
+    writeln('*');
+    cnt1:=cnt1-2;
+  end;
+  for k := 1 to a-1 do begin
+    write (' ');
+  end;
+  for b := 1 to a-1 do begin
+    write('*');
+  end;  
+    writeln('*');
+end.
