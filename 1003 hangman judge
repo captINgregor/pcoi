@@ -1,0 +1,43 @@
+var 
+    x, y: ansistring;
+    a: array['a'..'z'] of boolean;
+    a2: array['a'..'z'] of ansistring;
+    i, wcnt, ccnt, noc: longint;
+    ch: char;
+begin
+    for ch := 'a' to 'z' do 
+        a[ch] := false;
+    readln(y);
+    for i := 1 to length(y) do
+        a[y[i]] := true;
+    noc := 0;
+    for ch := 'a' to 'z' do begin
+        if (a[ch] = true) then begin
+            noc := noc + 1;
+        end;
+    end;
+    readln(x);
+    wcnt := 0;
+    ccnt := 0;
+    for i := 1 to length(x) do begin
+        if (a2[x[i]] <> x) then begin
+            if (a[x[i]] = true) then begin
+                ccnt := ccnt + 1;
+                a[x[i]] := false;
+            end
+            else if (a[x[i]] = false) then begin
+                wcnt := wcnt + 1;   
+            end;
+            a2[x[i]] := x;
+        end;
+        if (wcnt=7) then begin
+            writeln('You lose.');
+            exit();
+        end
+        else if (ccnt = noc) then begin
+            writeln('You win.');
+            exit();
+        end;
+    end;
+    writeln('You chickened out.');
+end.
