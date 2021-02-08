@@ -1,0 +1,10 @@
+program task1009;
+var a,b,k,ans,i:longint;
+begin
+	readln(a,b,k);
+    for i:=a to b do
+    begin
+        if (i mod k=0) then ans:=ans+i;
+    end;
+    writeln(ans);
+end.
