@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int gaming(char help) {
+    if (help == '@') return 3;
+    if (help == '/'  or help == '*') return 2;
+    else return 1;
+}
+
+int main() {
+    stack<char> stack;
+    int i = 0;
+    char b;
+    while (!EOF) {
+        cin >> b;
+        if (b <= '9' and b >= '0') {
+            cout << b;
+        }
+        if (stack.top() == '@' and b == '@') {
+            stack.push(b);
+        }
+        else if (gaming(b) > gaming(stack.top()) or stack.empty()) {
+            stack.push(b);
+        }
+        else if (gaming(b) <= gaming(stack.top())) {
+            while (!stack.empty() and gaming(b) <= gaming(stack.top())) {
+                cout << b;
+                stack.pop();
+            }
+            stack.push(b);
+        }
+    }
+}
